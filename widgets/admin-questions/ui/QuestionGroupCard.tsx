@@ -23,7 +23,7 @@ export const QuestionGroupCard = ({ item, onDelete, isDeleting, onUpdate }: { it
         passingScore: score,
     })}
       />
-      <div className={`bg-blue-100 overflow-hidden transition-all duration-200 p-2 rounded-b-lg ease-in-out
+      <div className={`bg-white/25 backdrop-blur-md border border-white/40 shadow-lg overflow-hidden transition-all duration-200 p-2 rounded-b-lg ease-in-out
         ${isOpen ? 'min-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <QuestionList questionGroupId={item.questionGroupId} />

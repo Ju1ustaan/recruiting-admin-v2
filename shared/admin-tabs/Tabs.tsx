@@ -24,7 +24,7 @@ export const Tabs = ({ tabs, renderContent }: TabsProps) => {
             onClick={() => setActiveTab(tab.id)}
             className={`p-2 rounded-t-lg transition-colors duration-200 cursor-pointer
               ${activeTab === tab.id
-                ? 'bg-blue-300 text-white'
+                ? 'bg-white/25 backdrop-blur-md border border-white/40 text-white'
                 : 'text-gray-600 hover:bg-blue-100'
               }`}
           >
@@ -32,7 +32,7 @@ export const Tabs = ({ tabs, renderContent }: TabsProps) => {
           </button>
         ))}
       </div>
-      <div className={`bg-blue-300 rounded-b-lg transition-colors duration-200 rounded-tr-lg ${(activeTab !== tabs[0].id)
+      <div className={`bg-white/25 backdrop-blur-md border border-white/40 shadow-lg rounded-b-lg transition-colors duration-200 rounded-tr-lg ${(activeTab !== tabs[0].id)
                 ? 'rounded-t-lg'
                 : 'rounded-t-none'
               }`}>

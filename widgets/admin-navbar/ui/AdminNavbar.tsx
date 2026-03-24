@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { ChevronDown, BriefcaseBusiness, SlidersHorizontal, ClipboardList, LucideIcon, VideoIcon, ImageIcon } from "lucide-react"
+import { ChevronDown, BriefcaseBusiness, SlidersHorizontal, ClipboardList, LucideIcon, VideoIcon, ImageIcon, UsersRound } from "lucide-react"
 
 interface ChildLink {
     path: string
@@ -20,12 +20,15 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
     { path: '/', name: 'Главная' },
-    { path: '/', name: 'Домой' },
+    { path: '/candidate', name: 'Кандидаты',
+        childLinks: [
+            { path: '/candidate', name: 'Кандидаты', icon: UsersRound }
+        ]},
     { path: '/media', name: 'Медиа',
         childLinks: [
             { path: '/media', name: 'Изображения', icon: ImageIcon },
             { path: '/media/video', name: 'Видео', icon: VideoIcon },
-        ] },
+        ]},
     {
         path: '/vacancy',
         name: 'Вакансии',

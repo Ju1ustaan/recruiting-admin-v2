@@ -28,6 +28,8 @@ export const useQuestionList = (questionGroupId: number) => {
             numbering: (group?.questions.length ?? 0) + 1,
             questionGroupId,
         })
+        const match = question.toString().match(/\d+/)
+        console.log(match, 'ответ при создании вопроса');
 
         // 2. Создаём ответы параллельно
         await Promise.all(
@@ -35,7 +37,7 @@ export const useQuestionList = (questionGroupId: number) => {
                 questionAnswerApi.create({
                     answerText: answer.answerText,
                     isTrue: answer.isTrue,
-                    questionId: question.questionId,
+                    questionId: match ? parseInt(match[0]) : 0, // на всякий случай, если API вернул строку
                 })
             )
         )
