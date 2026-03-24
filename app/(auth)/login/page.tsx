@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 
 const LogIn = () => {
     return (
@@ -19,7 +18,6 @@ const LogIn = () => {
                 <button className="bg-blue-400 w-full rounded-md font-bold py-2">Войти</button>
                 <Link href={'register'} className="text-blue-700 text-sm">Регистрация</Link>
             </div>
-            <Image src="/folders.jpg" width={100} height={100} alt="Sunlight" className="z-999 absolute top-0 left-0 w-[400px] h-[400px] object-cover pointer-events-none" />
         </div>
     )
 }
