@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { SnackbarProvider } from '@/shared/admin-snackbar'
+import { BackgroundProvider } from '@/shared/providers/BackgroundProvider'
 import { useState } from 'react'
 
 export default function Providers({ children }: { children: React.ReactNode }) {
@@ -11,7 +12,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     return (
         <QueryClientProvider client={queryClient}>
             <SnackbarProvider>
-                {children}
+                <BackgroundProvider>
+                    {children}
+                </BackgroundProvider>
             </SnackbarProvider>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

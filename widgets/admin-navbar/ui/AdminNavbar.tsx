@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { ChevronDown, BriefcaseBusiness, SlidersHorizontal, ClipboardList, LucideIcon, VideoIcon, ImageIcon, UsersRound } from "lucide-react"
+import { ChevronDown, BriefcaseBusiness, SlidersHorizontal, ClipboardList, LucideIcon, VideoIcon, ImageIcon, UsersRound, UserCircle } from "lucide-react"
 
 interface ChildLink {
     path: string
@@ -23,19 +23,24 @@ const navLinks: NavLink[] = [
     { path: '/candidate', name: 'Кандидаты',
         childLinks: [
             { path: '/candidate', name: 'Кандидаты', icon: UsersRound }
-        ]},
+        ]
+    },
     { path: '/media', name: 'Медиа',
         childLinks: [
             { path: '/media', name: 'Изображения', icon: ImageIcon },
-            { path: '/media/video', name: 'Видео', icon: VideoIcon },
-        ]},
-    {
-        path: '/vacancy',
-        name: 'Вакансии',
+            { path: '/media/multimedia', name: 'Видео', icon: VideoIcon },
+        ]
+    },
+    { path: '/vacancy', name: 'Вакансии',
         childLinks: [
             { path: '/vacancy', name: 'Вакансии', icon: BriefcaseBusiness },
             { path: '/vacancy/filters', name: 'Фильтры', icon: SlidersHorizontal },
             { path: '/vacancy/test-page', name: 'Тест', icon: ClipboardList },
+        ]
+    },
+    { path: '/profile', name: 'Профиль',
+        childLinks: [
+            { path: '/profile', name: 'Мой профиль', icon: UserCircle }
         ]
     },
 ]
