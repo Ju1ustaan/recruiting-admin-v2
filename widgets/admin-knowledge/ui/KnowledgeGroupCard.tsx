@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Loader, PlusCircle } from "lucide-react"
 import { KnowledgeGroupShort } from "@/entities/vacancy-tests"
 import { ConfirmDialog } from "@/shared/confirm-dialog"
-// import { QuestionGroupHeader } from "@/widgets/admin-questions/ui/QuestionGroupHeader"
+import { QuestionGroupHeader } from "@/widgets/admin-questions/ui/QuestionGroupHeader"
 import { useKnowledgeList } from "../model/useKnowledgeList"
 import { KnowledgeItem } from "./KnowledgeItem"
 
@@ -31,14 +31,14 @@ export const KnowledgeGroupCard = ({ group }: { group: KnowledgeGroupShort }) =>
     return (
         <>
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-                {/* <QuestionGroupHeader
+                <QuestionGroupHeader
                     label={group.knowledgeGroupName}
                     isOpen={isOpen}
                     onToggle={() => setIsOpen(!isOpen)}
                     onUpdate={updateGroup} 
                     onDelete={() => setShowConfirm(true)}
                     isDeleting={isDeletingGroup}
-                /> */}
+                />
 
                 {isOpen && (
                     <div className="p-4 space-y-2">

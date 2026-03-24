@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { useSnackbar } from "@/shared/admin-snackbar"
 import { knowledgeApi } from "@/entities/vacancy-tests"
 
+
 export const useKnowledgeList = (knowledgeGroupId: number) => {
     const { success, error } = useSnackbar()
     const queryClient = useQueryClient()

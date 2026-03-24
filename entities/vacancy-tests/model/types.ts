@@ -56,7 +56,7 @@ export interface CreateQuestionGroupDto {
 export interface UpdateQuestionGroupDto {
   questionGroupId: number
   questionGroupName: string
-  passingScore: number
+  passingScore?: number
 }
 
 // ─── Bulk ─────────────────────────────────────────────
