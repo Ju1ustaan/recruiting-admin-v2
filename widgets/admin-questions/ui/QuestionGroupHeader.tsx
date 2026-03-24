@@ -7,17 +7,17 @@ import { UpdateQuestionGroupDto } from "@/entities/vacancy-tests/model/types"
 
 interface QuestionGroupHeaderProps {
     label: string
-    id: number
-    passingScore: number
+    id?: number
+    passingScore?: number
     onDelete: () => void
     onToggle?: () => void
     isOpen?: boolean
     isDeleting: boolean
-    onUpdate: (dto: UpdateQuestionGroupDto) => void
+    onUpdate: (name: string, passingScore: number) => void  // ← просто примитивы
 }
 
 export const QuestionGroupHeader = ({
-    label, passingScore, onDelete, onToggle, isOpen, id, isDeleting, onUpdate
+    label, passingScore = 0, onDelete, onToggle, isOpen, id = 0, isDeleting, onUpdate
 }: QuestionGroupHeaderProps) => {
     const [confirmId, setConfirmId] = useState<number | null>(null)
     const [showEdit, setShowEdit] = useState(false)
@@ -26,10 +26,10 @@ export const QuestionGroupHeader = ({
     const [editName, setEditName] = useState(label)
     const [editScore, setEditScore] = useState(passingScore)
 
-    const handleSave = () => {
-        onUpdate({ questionGroupId: id, questionGroupName: editName, passingScore: editScore })
-        setShowEdit(false)
-    }
+  const handleSave = () => {
+    onUpdate(editName, editScore)  // ← передаём примитивы
+    setShowEdit(false)
+}
 
     const handleCancel = () => {
         setEditName(label)
@@ -61,7 +61,9 @@ export const QuestionGroupHeader = ({
 
                 {/* Проходной балл */}
                 <div className="flex items-center gap-3 w-2/5">
-                    {showEdit ? (
+                    {
+                        passingScore !== 0 && (
+                            showEdit ? (
                         <div className="flex items-center gap-2 flex-1">
                             <input
                                 type="range"
@@ -76,7 +78,9 @@ export const QuestionGroupHeader = ({
                         <p className="text-sm">
                             Проходной балл: <span className="font-semibold">{passingScore}</span>
                         </p>
-                    )}
+                    )
+                        )
+                    }
 
                     {/* Кнопки редактирования */}
                     {showEdit ? (

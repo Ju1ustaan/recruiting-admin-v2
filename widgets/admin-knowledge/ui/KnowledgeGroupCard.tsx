@@ -35,7 +35,7 @@ export const KnowledgeGroupCard = ({ group }: { group: KnowledgeGroupShort }) =>
                     label={group.knowledgeGroupName}
                     isOpen={isOpen}
                     onToggle={() => setIsOpen(!isOpen)}
-                    onUpdate={updateGroup} 
+                    onUpdate={(name) => updateGroup(name)}
                     onDelete={() => setShowConfirm(true)}
                     isDeleting={isDeletingGroup}
                 />

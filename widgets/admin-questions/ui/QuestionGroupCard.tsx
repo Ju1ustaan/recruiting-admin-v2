@@ -17,7 +17,11 @@ export const QuestionGroupCard = ({ item, onDelete, isDeleting, onUpdate }: { it
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
         isDeleting={isDeleting}
-        onUpdate={onUpdate}
+           onUpdate={(name, score) => onUpdate({
+        questionGroupId: item.questionGroupId,
+        questionGroupName: name,
+        passingScore: score,
+    })}
       />
       <div className={`bg-blue-100 overflow-hidden transition-all duration-200 p-2 rounded-b-lg ease-in-out
         ${isOpen ? 'min-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
