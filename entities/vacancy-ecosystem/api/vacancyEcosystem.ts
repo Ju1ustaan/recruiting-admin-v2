@@ -1,8 +1,12 @@
 import { api } from "@/shared/api/axiosInctance"
-import { CreateEcosystemDto, UpdateEcosystemDto } from "../model/types"
+import { CreateEcosystemDto, UpdateEcosystemDto, EcosystemList } from "../model/types"
 
 
 export const vacancyEcosystem = {
+    get: async (): Promise<EcosystemList[]> => {
+        const { data } = await api.get(`vacancy/ecosystem/getVacancyCategory`)
+        return data
+    },
 
     create: async (dto: CreateEcosystemDto): Promise<void> => {
         await api.post('vacancy/ecosystem/addVacancyCategory', dto)

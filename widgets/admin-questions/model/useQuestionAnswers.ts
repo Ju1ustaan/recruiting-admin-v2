@@ -11,6 +11,13 @@ export const useQuestionAnswers = (questionGroupId: number, questionId: number) 
     const invalidate = () =>
         queryClient.invalidateQueries({ queryKey: ['question-group', questionGroupId] })
 
+    // ─── Создание картинки ────────────────────────────
+    const { mutate: savePicture, isPending: isSavingPicture } = useMutation({
+    mutationFn: ({ questionAnswerId, picture }: { questionAnswerId: number, picture: string }) =>
+        questionAnswerApi.savePicture(questionAnswerId, picture),
+    onSuccess: () => { invalidate(); success('Картинка добавлена') },
+    onError: () => error('Ошибка при загрузке картинки'),
+})
     // ─── Создание ─────────────────────────────────────
     const { mutate: createAnswer, isPending: isCreating } = useMutation({
         mutationFn: ({ answerText, isTrue }: { answerText: string, isTrue: boolean }) =>
@@ -35,6 +42,8 @@ export const useQuestionAnswers = (questionGroupId: number, questionId: number) 
     })
 
     return {
+    savePicture,
+    isSavingPicture,
         createAnswer,
         isCreating,
         updateAnswer,

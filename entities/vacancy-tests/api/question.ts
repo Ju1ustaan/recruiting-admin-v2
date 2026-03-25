@@ -75,5 +75,10 @@ export const questionAnswerApi = {
   delete: async (questionAnswerId: number): Promise<void> => {
     await api.delete(`vacancy/question/deleteQuestionAnswer/${questionAnswerId}`)
   },
-
+savePicture: async (questionAnswerId: number, picture: string): Promise<void> => {
+    await api.post('vacancy/question/saveQuestionAnswerPicture',
+        { picture },
+        { params: { questionAnswerId } }
+    )
+},
 }

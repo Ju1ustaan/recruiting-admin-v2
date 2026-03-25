@@ -1,6 +1,12 @@
 
-export interface Ecosystem {
+export interface EcosystemList {
     ecosystemId: number
+    ecosystemName: string
+    ecosystemPicture: string
+    ecosystemDescription: string
+}
+
+export interface Ecosystem {
     ecosystemName: string
     ecosystemPictureName: string
     ecosystemDescription: string

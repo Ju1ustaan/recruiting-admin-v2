@@ -1,2 +1,6 @@
 export { vacancySettingsApi } from './api/vacancySettings'
-export type { VacancySetting } from './model/types'
+export type { 
+    VacancySetting, 
+    VacancyEcoSystem 
+} from './model/types'
+

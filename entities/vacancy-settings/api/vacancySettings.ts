@@ -1,6 +1,9 @@
 import { api } from '@/shared/api/axiosInctance'
 import { VacancySetting } from '../model/types'
 type VacancySettingKeys = keyof VacancySetting
+
+
+
 export const vacancySettingsApi = {
   getAll: async (name: string): Promise<VacancySetting[]> => {
     const key = `${name}Id` as VacancySettingKeys

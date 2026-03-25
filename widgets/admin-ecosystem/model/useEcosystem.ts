@@ -1,6 +1,6 @@
 'use client'
 
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"
 import { useSnackbar } from "@/shared/admin-snackbar"
 import { CreateEcosystemDto, UpdateEcosystemDto, vacancyEcosystem } from "@/entities/vacancy-ecosystem"
 export const useEcosystem = () => {
@@ -9,7 +9,10 @@ export const useEcosystem = () => {
 
     const invalidate = () =>
         queryClient.invalidateQueries({ queryKey: ['ecosystems'] })
-
+ const { data: ecosystems = [], isLoading } = useQuery({
+        queryKey: ['ecosystems'],
+        queryFn: () => vacancyEcosystem.get(),
+    })
     // ─── Создание ─────────────────────────────────────
     const { mutate: createEcosystem, isPending: isCreating } = useMutation({
         mutationFn: (dto: CreateEcosystemDto) => vacancyEcosystem.create(dto),
@@ -39,5 +42,7 @@ export const useEcosystem = () => {
         deleteEcosystem,
         deletingId,
         isDeleting,
+        ecosystems,
+        isLoading,
     }
 }

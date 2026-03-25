@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { Pencil, Trash2, Check, X, Loader, PlusCircle, CheckCircle } from "lucide-react"
+import { Pencil, Trash2, Check, X, Loader, PlusCircle, CheckCircle, ImageIcon } from "lucide-react"
 import { Question, UpdateQuestionDto } from "@/entities/vacancy-tests/model/types"
 import { ConfirmDialog } from "@/shared/confirm-dialog"
 import { useQuestionAnswers } from "../model/useQuestionAnswers"
@@ -25,6 +25,8 @@ export const QuestionItem = ({
 }: QuestionItemProps) => {
     const {
         createAnswer, isCreating,
+        savePicture,
+        isSavingPicture,
         updateAnswer, isUpdating: isUpdatingAnswer,
         deleteAnswer, deletingAnswerId, isDeleting: isDeletingAnswer,
     } = useQuestionAnswers(questionGroupId, question.questionId)
@@ -130,6 +132,7 @@ export const QuestionItem = ({
                                 <button onClick={handleCancelQuestion} className="p-1 rounded text-gray-400 hover:bg-gray-200 transition-colors">
                                     <X className="w-3.5 h-3.5" />
                                 </button>
+
                             </>
                         ) : (
                             <>
@@ -179,7 +182,33 @@ export const QuestionItem = ({
                                         }}
                                         className="flex-1 p-1 text-sm rounded border border-blue-300 outline-blue-400"
                                     />
-
+                                    {/* <input
+                                        type="file"
+                                        accept="image/*"
+                                        id={`answer-pic-${answer.answerId}`}
+                                        className="hidden"
+                                        onChange={(e) => {
+                                            const file = e.target.files?.[0]
+                                            if (!file) return
+                                            const reader = new FileReader()
+                                            reader.onload = () => {
+                                                const base64 = (reader.result as string).split(',')[1]
+                                                savePicture({ questionAnswerId: answer.answerId, picture: base64 })
+                                            }
+                                            reader.readAsDataURL(file)
+                                        }}
+                                    />
+                                    <label
+                                        htmlFor={`answer-pic-${answer.answerId}`}
+                                        className="p-1 rounded text-gray-300 hover:text-blue-500 hover:bg-blue-50
+        opacity-0 group-hover/answer:opacity-100 transition-all cursor-pointer"
+                                        title="Добавить картинку"
+                                    >
+                                        {isSavingPicture
+                                            ? <Loader className="w-3.5 h-3.5 animate-spin" />
+                                            : <ImageIcon className="w-3.5 h-3.5" />
+                                        }
+                                    </label> */}
                                     <button
                                         onClick={() => handleSaveAnswer(answer.answerId)}
                                         disabled={isUpdatingAnswer}

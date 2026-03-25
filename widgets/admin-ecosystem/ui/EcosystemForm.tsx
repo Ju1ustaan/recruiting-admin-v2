@@ -3,7 +3,12 @@
 import { useState } from "react"
 import { GroupFormWrapper } from "@/shared/group-form-wrapper"
 import { useEcosystem } from "../model/useEcosystem"
+import { ImagesDialog } from "./ImagesDialog"
+import { Picture } from "@/entities/picture"
 
+type Props = {
+    pictures: Picture[]
+}
 interface EcosystemFormState {
     ecosystemName: string
     ecosystemPictureName: string
@@ -16,13 +21,14 @@ const initialForm = (): EcosystemFormState => ({
     ecosystemDescription: '',
 })
 
-export const EcosystemForm = () => {
+export const EcosystemForm = ({pictures}: Props) => {
+    const [choiceImg, setChoiceImg] = useState('')
     const { createEcosystem, isCreating } = useEcosystem()
     const [form, setForm] = useState<EcosystemFormState>(initialForm())
 
     const isValid =
         !!form.ecosystemName.trim() &&
-        !!form.ecosystemPictureName.trim() &&
+        !!choiceImg.trim() &&
         !!form.ecosystemDescription.trim()
 
     const handleSubmit = () => {
@@ -30,15 +36,14 @@ export const EcosystemForm = () => {
             {
                 ecosystemId: 0,
                 ecosystemName: form.ecosystemName.trim(),
-                ecosystemPictureName: form.ecosystemPictureName.trim(),
+                ecosystemPictureName: choiceImg.trim(),
                 ecosystemDescription: form.ecosystemDescription.trim(),
             },
             { onSuccess: () => setForm(initialForm()) }
         )
     }
 
-    const handleChange = (field: keyof EcosystemFormState, value: string) =>
-        setForm(prev => ({ ...prev, [field]: value }))
+    const handleChange = (field: keyof EcosystemFormState, value: string) => setForm(prev => ({ ...prev, [field]: value }))
 
     return (
         <GroupFormWrapper
@@ -60,14 +65,7 @@ export const EcosystemForm = () => {
             </div>
 
             <div>
-                <label className="text-xs text-gray-500 mb-1 block">Название картинки</label>
-                <input
-                    type="text"
-                    value={form.ecosystemPictureName}
-                    onChange={(e) => handleChange('ecosystemPictureName', e.target.value)}
-                    className="w-full p-1.5 text-sm rounded-lg border border-gray-300 outline-blue-400"
-                    placeholder="Например: mbank.png"
-                />
+                <ImagesDialog choiceImg={choiceImg} pictures={pictures} setChoiceImg={setChoiceImg}/>
             </div>
 
             <div>
