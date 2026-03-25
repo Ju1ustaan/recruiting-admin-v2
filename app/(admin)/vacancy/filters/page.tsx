@@ -2,6 +2,7 @@
 
 import { AdminFilters } from "@/widgets/admin-filters"
 import { AdminEcosystem } from "@/widgets/admin-ecosystem"
+import { AdminCategory } from "@/widgets/admin-category"
 import { Tabs } from "@/shared/admin-tabs"
 
 
@@ -40,7 +41,7 @@ const VacancyFilters = () => {
                                     </div>
                                 )}
                             {activeTab === 'ecosystem' && <AdminEcosystem />}
-                            {activeTab === 'category' && <div>Категории</div>}
+                            {activeTab === 'category' && <AdminCategory/>}
                         </div>
                     )}
                 />

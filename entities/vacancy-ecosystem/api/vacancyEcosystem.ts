@@ -16,8 +16,8 @@ export const vacancyEcosystem = {
         await api.put('vacancy/ecosystem/editVacancyCategory', dto)
     },
 
-    delete: async (ecosystemId: number): Promise<void> => {
-        await api.delete(`vacancy/ecosystem/deleteVacancyCategory/${ecosystemId}`)
+    delete: async (id: number): Promise<void> => {
+        await api.delete(`vacancy/ecosystem/deleteVacancyCategory/${id}`)
     },
 
 }

@@ -5,9 +5,16 @@ import { GroupFormWrapper } from "@/shared/group-form-wrapper"
 import { useEcosystem } from "../model/useEcosystem"
 import { ImagesDialog } from "./ImagesDialog"
 import { Picture } from "@/entities/picture"
+import { CreateEcosystemDto } from "@/entities/vacancy-ecosystem"
+import { CreateCategoryDto } from "@/entities/vacancy-category"
 
-type Props = {
+
+
+interface Props<T> {
     pictures: Picture[]
+    title: string
+    create: (dto: T) => void
+    mapToDto: (form: EcosystemFormState, img: string) => T
 }
 interface EcosystemFormState {
     ecosystemName: string
@@ -21,7 +28,7 @@ const initialForm = (): EcosystemFormState => ({
     ecosystemDescription: '',
 })
 
-export const EcosystemForm = ({pictures}: Props) => {
+export const EcosystemForm = <T extends CreateEcosystemDto | CreateCategoryDto>({pictures, title = 'Добавить', create, mapToDto}: Props<T>) => {
     const [choiceImg, setChoiceImg] = useState('')
     const { createEcosystem, isCreating } = useEcosystem()
     const [form, setForm] = useState<EcosystemFormState>(initialForm())
@@ -32,22 +39,15 @@ export const EcosystemForm = ({pictures}: Props) => {
         !!form.ecosystemDescription.trim()
 
     const handleSubmit = () => {
-        createEcosystem(
-            {
-                ecosystemId: 0,
-                ecosystemName: form.ecosystemName.trim(),
-                ecosystemPictureName: choiceImg.trim(),
-                ecosystemDescription: form.ecosystemDescription.trim(),
-            },
-            { onSuccess: () => setForm(initialForm()) }
-        )
-    }
+    const dto = mapToDto(form, choiceImg)
+    create(dto)
+}
 
     const handleChange = (field: keyof EcosystemFormState, value: string) => setForm(prev => ({ ...prev, [field]: value }))
 
     return (
         <GroupFormWrapper
-            title="Добавить экосистему"
+            title={title}
             onSubmit={handleSubmit}
             isLoading={isCreating}
             isValid={isValid}
@@ -65,6 +65,8 @@ export const EcosystemForm = ({pictures}: Props) => {
             </div>
 
             <div>
+                
+                <label className="text-xs text-gray-500 mb-1 block">Картинки</label>
                 <ImagesDialog choiceImg={choiceImg} pictures={pictures} setChoiceImg={setChoiceImg}/>
             </div>
 

@@ -6,12 +6,6 @@ export interface EcosystemList {
     ecosystemDescription: string
 }
 
-export interface Ecosystem {
-    ecosystemName: string
-    ecosystemPictureName: string
-    ecosystemDescription: string
-}
-
 export interface CreateEcosystemDto {
     ecosystemId: number
     ecosystemName: string
