@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"
 import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { additionalApi, AdditionalQuestionDto, AdditionalGroupDto } from "@/entities/vacancy-tests/api/additional"
 
@@ -32,6 +32,11 @@ export const useAdditionalGroup = () => {
             q.milliseconds > 0
         )
 
+        
+    const { data: additionalGroups = [], isLoading } = useQuery({
+        queryKey: ['additional-question-groups'],
+        queryFn: () => additionalApi.getAll(),
+    })
     // ─── Сохранение ───────────────────────────────────
     const { mutate: saveAll, isPending } = useMutation({
         mutationFn: () => additionalApi.saveAll([form]),
@@ -80,5 +85,7 @@ export const useAdditionalGroup = () => {
         addQuestion,
         removeQuestion,
         updateQuestion,
+        additionalGroups,
+        isLoading
     }
 }

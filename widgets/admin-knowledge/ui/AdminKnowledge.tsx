@@ -1,16 +1,12 @@
 'use client'
 
-import { useQuery } from "@tanstack/react-query"
 import { Loader } from "lucide-react"
-import { knowledgeApi } from "@/entities/vacancy-tests"
 import { KnowledgeGroupCard } from "./KnowledgeGroupCard"
 import { KnowledgeGroupForm } from "./KnowledgeGroupForm"
+import { useKnowledgeGroup } from "../model/useKnowledgeGroup"
 
 export const AdminKnowledge = () => {
-    const { data: groups = [], isLoading } = useQuery({
-        queryKey: ['knowledge-groups'],
-        queryFn: () => knowledgeApi.getAll(),
-    })
+    const { groups, isLoading } = useKnowledgeGroup()
 
     if (isLoading) return <Loader className="w-5 h-5 animate-spin text-gray-400" />
 

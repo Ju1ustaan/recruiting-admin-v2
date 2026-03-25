@@ -1,11 +1,24 @@
+'use client'
 
+import { Tabs } from "@/shared/ui/admin-tabs"
 import { AdminVacancy } from "@/widgets/admin-vacancy"
+
+const tabs = [
+    { id: 'create', label: 'Создать вакансию' },
+    { id: 'vacancy-list', label: 'Список вакансий' },
+]
 const VacancyPage = () => {
     return (
         <div>
-            <h1>Вакансии</h1>
-            <p>Это страница вакансий администратора.</p>
-            <AdminVacancy/>
+            <Tabs
+                tabs={tabs}
+                renderContent={(activeTab) => (
+                    <div className="p-5">
+                        {activeTab === 'create' && (<AdminVacancy />)}
+                        {activeTab === 'vacancy-list' && (<div>here vacancy list</div>)}
+                    </div>
+                )}
+            />
         </div>
     )
 }

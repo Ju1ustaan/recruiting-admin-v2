@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"
 import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { knowledgeApi, KnowledgeDto, KnowledgeGroupDto } from "@/entities/vacancy-tests/api/knowledge"
 
@@ -90,13 +90,20 @@ export const useKnowledgeGroup = () => {
             ),
         }))
 
+         const { data: groups = [], isLoading } = useQuery({
+        queryKey: ['knowledge-groups'],
+        queryFn: () => knowledgeApi.getAll(),
+    })
+
     const setGroupName = (value: string) =>
         setForm(prev => ({ ...prev, knowledgeGroupName: value }))
 
     return {
+        groups,
         form,
         isValid,
         isPending,
+        isLoading,
         saveAll,
         setGroupName,
         addKnowledge,
