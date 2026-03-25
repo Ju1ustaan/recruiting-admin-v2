@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronRight, XCircle, PencilIcon, Check, X } from "lucide-react"
-import { ConfirmDialog } from "@/shared/confirm-dialog"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 import { UpdateQuestionGroupDto } from "@/entities/vacancy-tests/model/types"
 
 interface QuestionGroupHeaderProps {

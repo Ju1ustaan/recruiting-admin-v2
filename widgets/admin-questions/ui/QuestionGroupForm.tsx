@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { PlusCircle, Trash2 } from "lucide-react"
-import { GroupFormWrapper } from "@/shared/group-form-wrapper"
+import { GroupFormWrapper } from "@/shared/ui/group-form-wrapper"
 import { useQuestionsGroup } from "../model/useQuestionsGroup"
 import { SaveAllQuestionDto } from "@/entities/vacancy-tests"
 

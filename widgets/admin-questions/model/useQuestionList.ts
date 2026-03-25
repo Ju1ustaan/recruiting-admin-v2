@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { questionApi, questionAnswerApi } from "@/entities/vacancy-tests/api/question"
 import { UpdateQuestionDto, SaveAllQuestionDto } from "@/entities/vacancy-tests/model/types"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 
 export const useQuestionList = (questionGroupId: number) => {
     const { success, error } = useSnackbar()

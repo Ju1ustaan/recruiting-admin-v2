@@ -1,4 +1,4 @@
-import { AdminContainer } from "@/shared/admin-container/ui/AdminContainer"
+import { AdminContainer } from "@/shared/ui/admin-container/ui/AdminContainer"
 import { AdminNavbar } from "@/widgets/admin-navbar/ui/AdminNavbar"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { SnackbarProvider } from '@/shared/admin-snackbar'
+import { SnackbarProvider } from '@/shared/ui/admin-snackbar'
 import { BackgroundProvider } from '@/shared/providers/BackgroundProvider'
 import { useState } from 'react'
 

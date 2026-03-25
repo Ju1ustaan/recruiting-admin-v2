@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { knowledgeApi, KnowledgeDto, KnowledgeGroupDto } from "@/entities/vacancy-tests/api/knowledge"
 
 const emptyKnowledge = (): KnowledgeDto => ({

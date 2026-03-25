@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Pencil, Trash2, Check, X, Loader, PlusCircle, ChevronRight } from "lucide-react"
 import { KnowledgeDto } from "@/entities/vacancy-tests"
-import { ConfirmDialog } from "@/shared/confirm-dialog"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 import { useKnowledgeLevels } from "../model/useKnowledgeLevels"
 
 interface KnowledgeItemProps {

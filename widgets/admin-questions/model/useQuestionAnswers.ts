@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { questionAnswerApi } from "@/entities/vacancy-tests"
 
 export const useQuestionAnswers = (questionGroupId: number, questionId: number) => {

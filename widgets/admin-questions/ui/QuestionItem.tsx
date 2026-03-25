@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Pencil, Trash2, Check, X, Loader, PlusCircle, CheckCircle, ImageIcon } from "lucide-react"
 import { Question, UpdateQuestionDto } from "@/entities/vacancy-tests/model/types"
-import { ConfirmDialog } from "@/shared/confirm-dialog"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 import { useQuestionAnswers } from "../model/useQuestionAnswers"
 
 interface QuestionItemProps {

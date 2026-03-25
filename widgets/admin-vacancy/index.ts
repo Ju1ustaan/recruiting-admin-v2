@@ -1,0 +1,1 @@
+export { AdminVacancy } from './ui/AdminVacancy'

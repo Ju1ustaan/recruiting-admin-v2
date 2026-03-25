@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { GroupFormWrapper } from "@/shared/group-form-wrapper"
+import { GroupFormWrapper } from "@/shared/ui/group-form-wrapper"
 import { useEcosystem } from "../model/useEcosystem"
 import { ImagesDialog } from "./ImagesDialog"
 import { Picture } from "@/entities/picture"

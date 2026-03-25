@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Loader, PlusCircle, Clock, FileText, Video, Check, X, Pencil, Trash2, ChevronRight } from "lucide-react"
 import { AdditionalGroupShort, UpdateAdditionalQuestionDto, QuestionType } from "@/entities/vacancy-tests/api/additional"
-import { ConfirmDialog } from "@/shared/confirm-dialog"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 import { useAdditionalList } from "../model/useAdditionalList"
 
 const TYPE_LABELS = {

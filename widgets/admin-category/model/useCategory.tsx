@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { CreateCategoryDto, UpdateCategoryDto, vacancyCategory } from "@/entities/vacancy-category"
 
 export const useCategory = () => {

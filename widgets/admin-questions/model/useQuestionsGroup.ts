@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { questionGroupApi } from "@/entities/vacancy-tests"
 import { SaveAllQuestionDto } from "@/entities/vacancy-tests"
 import { questionApi } from "@/entities/vacancy-tests"

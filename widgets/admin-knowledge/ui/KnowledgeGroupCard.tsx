@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Loader, PlusCircle } from "lucide-react"
 import { KnowledgeGroupShort } from "@/entities/vacancy-tests"
-import { ConfirmDialog } from "@/shared/confirm-dialog"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 import { QuestionGroupHeader } from "@/widgets/admin-questions/ui/QuestionGroupHeader"
 import { useKnowledgeList } from "../model/useKnowledgeList"
 import { KnowledgeItem } from "./KnowledgeItem"

@@ -3,7 +3,7 @@
 import { AdminFilters } from "@/widgets/admin-filters"
 import { AdminEcosystem } from "@/widgets/admin-ecosystem"
 import { AdminCategory } from "@/widgets/admin-category"
-import { Tabs } from "@/shared/admin-tabs"
+import { Tabs } from "@/shared/ui/admin-tabs"
 
 
 const tabs = [

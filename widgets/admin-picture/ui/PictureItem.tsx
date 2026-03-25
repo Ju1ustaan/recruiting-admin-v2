@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Trash2, Loader, Copy, Check } from "lucide-react"
 import { Picture } from "@/entities/picture"
-import { ConfirmDialog } from "@/shared/confirm-dialog"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 
 const BASE_URL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL ?? ''
 

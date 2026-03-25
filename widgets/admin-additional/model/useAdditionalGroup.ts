@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { additionalApi, AdditionalQuestionDto, AdditionalGroupDto } from "@/entities/vacancy-tests/api/additional"
 
 const emptyQuestion = (numbering: number): AdditionalQuestionDto => ({

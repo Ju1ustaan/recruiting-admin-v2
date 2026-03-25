@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { vacancySettingsApi } from "@/entities/vacancy-settings"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 
 export const useAdminFilters = (name: string) => {
   const { success, error } = useSnackbar()

@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 
-import { ConfirmDialog } from "@/shared/confirm-dialog"
-import { ChoiceSelect } from "@/shared/choice-select"
+import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
+import { ChoiceSelect } from "@/shared/ui/choice-select"
 
 import { Picture } from "@/entities/picture"
 import { UpdateEcosystemDto, EcosystemList } from "@/entities/vacancy-ecosystem"

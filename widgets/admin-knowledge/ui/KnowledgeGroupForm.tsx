@@ -1,7 +1,7 @@
 'use client'
 
 import { PlusCircle, Trash2 } from "lucide-react"
-import { GroupFormWrapper } from "@/shared/group-form-wrapper"
+import { GroupFormWrapper } from "@/shared/ui/group-form-wrapper"
 import { useKnowledgeGroup } from "../model/useKnowledgeGroup"
 
 export const KnowledgeGroupForm = () => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { Tabs } from "@/shared/admin-tabs"
+import { Tabs } from "@/shared/ui/admin-tabs"
 import { AdminQuestions } from "@/widgets/admin-questions"
 import { AdminAdditional } from "@/widgets/admin-additional"
 import { AdminKnowledge } from "@/widgets/admin-knowledge"

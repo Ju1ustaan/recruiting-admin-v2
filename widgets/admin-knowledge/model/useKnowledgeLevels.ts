@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { knowledgeApi } from "@/entities/vacancy-tests"
 
 export const useKnowledgeLevels = (knowledgeGroupId: number) => {

@@ -1,8 +1,9 @@
 'use client'
 
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"
-import { useSnackbar } from "@/shared/admin-snackbar"
+import { useSnackbar } from "@/shared/ui/admin-snackbar"
 import { CreateEcosystemDto, UpdateEcosystemDto, vacancyEcosystem } from "@/entities/vacancy-ecosystem"
+
 export const useEcosystem = () => {
     const { success, error } = useSnackbar()
     const queryClient = useQueryClient()
