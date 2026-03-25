@@ -24,7 +24,7 @@ export const BackgroundProvider = ({ children }: { children: React.ReactNode }) 
 
   return (
     <div
-      className="antialiased flex gap-3 min-h-screen p-2 bg-cover bg-center bg-fixed"
+      className="bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url('${bg}')` }}
     >
       {children}

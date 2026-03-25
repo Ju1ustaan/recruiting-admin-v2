@@ -17,7 +17,7 @@ export const useProfile = () => {
     const changeBackground = (url: string) => {
         setSelectedBackground(url)
         localStorage.setItem('admin-background', url)
-window.dispatchEvent(new Event('storage'))
+        window.dispatchEvent(new Event('storage'))
     }
 
     return {
