@@ -2,6 +2,7 @@
 
 import { Tabs } from "@/shared/ui/admin-tabs"
 import { AdminVacancy } from "@/widgets/admin-vacancy"
+import { VacancyTable } from "@/widgets/admin-vacancy/ui/VacancyTable"
 
 const tabs = [
     { id: 'create', label: 'Создать вакансию' },
@@ -15,7 +16,7 @@ const VacancyPage = () => {
                 renderContent={(activeTab) => (
                     <div className="p-5">
                         {activeTab === 'create' && (<AdminVacancy />)}
-                        {activeTab === 'vacancy-list' && (<div>here vacancy list</div>)}
+                        {activeTab === 'vacancy-list' && (<VacancyTable/>)}
                     </div>
                 )}
             />
