@@ -135,14 +135,6 @@ export const AdminVacancy = () => {
                     onSelect={(id) => setField('additionalQuestionGroupId', id)}
                 />
 
-                {/* Кнопка */}
-                {/* <button
-                    disabled={!isValid}
-                    className="bg-green-400/70 backdrop-blur-md border border-white/50 rounded-md w-full p-2 text-sm
-                        hover:bg-green-500/70 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                    Сохранить вакансию
-                </button> */}
             </div>
 
             {/* Превью */}

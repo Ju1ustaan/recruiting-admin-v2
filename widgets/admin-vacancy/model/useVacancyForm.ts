@@ -113,27 +113,52 @@ export const useVacancyForm = () => {
         !!form.vacancyName.trim() &&
         form.ecosystemId !== 0 &&
         form.vacancyCategoryId !== 0
+        form.vacancyPicturesId !== 0
+        form.workScheduleId !== 0
 
-      const togglePublish = (vacancy: VacancyItem) => {
-    updateVacancy({
+ const togglePublish = (vacancy: VacancyItem) => {
+     updateVacancy({
         vacancyId: vacancy.vacancyId,
         vacancyName: vacancy.vacancyName,
+        cvIsActive: vacancy.cvIsActive ,
         isActive: !vacancy.isActive,
-        workScheduleId: vacancy.workSchedule.workScheduleId,
-        salaryId: vacancy.salary.salaryId,
-        experienceId: vacancy.experience.experienceId,
-        specializationId: vacancy.specialization.specializationId,
-        educationId: vacancy.education.educationId,
-        advantageId: vacancy.advantage.advantageId,
-        vacancyCategoryId: vacancy.vacancyCategoryId,
-        ecosystemId: vacancy.ecosystemId,
-        regionId: vacancy.region.regionId,
-        questionGroupId: vacancy.questionGroupId,
-        knowledgeGroupId: vacancy.knowledgeGroupId,
-        additionalQuestionGroupId: vacancy.additionalQuestionGroupId,
-        vacancyPicturesId: vacancy.vacancyPictures?.pictureId ?? 0,
+        workScheduleId: vacancy.workSchedule?.workScheduleId ?? null,
+        salaryId: vacancy.salary?.salaryId ?? null,
+        experienceId: vacancy.experience?.experienceId ?? null,
+        specializationId: vacancy.specialization?.specializationId ?? null,
+        educationId: vacancy.education?.educationId ?? null,
+        advantageId: vacancy.advantage?.advantageId ?? null,
+        vacancyCategoryId: vacancy.vacancyCategoryId ?? null,
+        ecosystemId: vacancy.ecosystemId ?? null,
+        regionId: vacancy.region?.regionId ?? null,
+        questionGroupId: vacancy.questionGroupId ?? null,
+        knowledgeGroupId: vacancy.knowledgeGroupId ?? null,
+        additionalQuestionGroupId: vacancy.additionalQuestionGroupId ?? null,
+        vacancyPicturesId: vacancy.vacancyPictures?.pictureId ?? null,
     })
 }
+ const toggleCvActivated = (vacancy: VacancyItem) => {
+     updateVacancy({
+        vacancyId: vacancy.vacancyId,
+        vacancyName: vacancy.vacancyName,
+        cvIsActive: !vacancy.cvIsActive ,
+        isActive: vacancy.isActive,
+        workScheduleId: vacancy.workSchedule?.workScheduleId ?? null,
+        salaryId: vacancy.salary?.salaryId ?? null,
+        experienceId: vacancy.experience?.experienceId ?? null,
+        specializationId: vacancy.specialization?.specializationId ?? null,
+        educationId: vacancy.education?.educationId ?? null,
+        advantageId: vacancy.advantage?.advantageId ?? null,
+        vacancyCategoryId: vacancy.vacancyCategoryId ?? null,
+        ecosystemId: vacancy.ecosystemId ?? null,
+        regionId: vacancy.region?.regionId ?? null,
+        questionGroupId: vacancy.questionGroupId ?? null,
+        knowledgeGroupId: vacancy.knowledgeGroupId ?? null,
+        additionalQuestionGroupId: vacancy.additionalQuestionGroupId ?? null,
+        vacancyPicturesId: vacancy.vacancyPictures?.pictureId ?? null,
+    })
+}
+
 
     return {
         // форма

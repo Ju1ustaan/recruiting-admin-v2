@@ -5,6 +5,7 @@ export { VacancyMultiFilterSelect } from './ui/VacancyMultiFilterSelect'
 export { VacancyPictureSelect } from './ui/VacancyPictureSelect'
 export { VacancyPreview } from './ui/VacancyPreview'
 export { VacancySelectCard } from './ui/VacancySelectCard'
+export { VacancyEdit } from './ui/VacancyEdit'
 
-
+export { useVacancyEdit } from './model/useVacancyEdit'
 export { useVacancyForm } from './model/useVacancyForm'
