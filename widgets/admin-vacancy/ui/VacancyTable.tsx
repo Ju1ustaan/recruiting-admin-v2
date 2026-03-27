@@ -64,7 +64,6 @@ const {
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Зарплата</th>
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Регион</th>
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Опыт</th>
-                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Прочее</th>
 
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Тест</th>
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Знания</th>
@@ -97,7 +96,6 @@ const {
                                     <td>{vacancy.salary && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
                                     <td>{vacancy.region && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
                                     <td>{vacancy.experience && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
-                                    <td>{vacancy.advantage && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
 
                                     <td>{vacancy.questionGroupId && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
                                     <td>{vacancy.knowledgeGroupId && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
