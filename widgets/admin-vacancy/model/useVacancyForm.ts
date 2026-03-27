@@ -179,6 +179,7 @@ export const useVacancyForm = () => {
         deleteVacancy,
         deletingId,
         isDeleting,
-        togglePublish
+        togglePublish,
+        toggleCvActivated
     }
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Loader, ExternalLink  } from "lucide-react"
+import { Loader, ExternalLink, CheckCircle  } from "lucide-react"
 import { useVacancyForm } from "../model/useVacancyForm"
 import { ConfirmDialog } from "@/shared/ui/confirm-dialog"
 
@@ -13,7 +13,7 @@ const {
     vacancies, isLoadingVacancies,
     isActive, setIsActive,
     updateVacancy, isUpdating, togglePublish,
-    deleteVacancy, deletingId, isDeleting,
+    deleteVacancy, deletingId, isDeleting, toggleCvActivated
 } = useVacancyForm()
 
     const [confirmId, setConfirmId] = useState<number | null>(null)
@@ -57,8 +57,21 @@ const {
                             <tr className="border-b border-white/40 bg-white/20">
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-12">#</th>
                                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Название</th>
-                                <th className="text-center px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-24">Резюме</th>
+
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Образование</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">График</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Специализация</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Зарплата</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Регион</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Опыт</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Прочее</th>
+
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Тест</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Знания</th>
+                                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Доп вопрос</th>
+                                
                                 <th className="text-center px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-24">Изображение</th>
+                                <th className="text-center px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-24">Резюме</th>
                                 <th className="text-center px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-40">Публикация</th>
                                 <th className="px-4 py-3 w-10" />
                             </tr>
@@ -72,26 +85,24 @@ const {
 
                                     {/* Название */}
                                     <td className="px-4 py-3">
-                                        <Link href={`/vacancy/${vacancy.vacancyId}`} className="font-medium text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer flex justify-between items-center w-2/12">{vacancy.vacancyName}
-                                        <ExternalLink width={18} height={18}/></Link>
+                                        <Link href={`/vacancy/${vacancy.vacancyId}`} className="font-medium text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer flex gap-2 items-center">
+                                        <ExternalLink width={18} height={18}/>
+                                        {vacancy.vacancyName}
+                                        </Link>
                                     </td>
 
-                                    <td className="px-4 py-3">
-                                        <button
-                                            disabled={isUpdating}
-                                            className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-all
-                                                ${vacancy.cvIsActive
-                                                    ? 'bg-green-500/20 text-green-700 border-green-300 hover:bg-green-500 hover:text-white'
-                                                    : 'bg-gray-100/50 text-gray-500 border-gray-300 hover:bg-gray-500 hover:text-white'
-                                                } disabled:opacity-50`}
-                                        >
-                                            {isUpdating
-                                                ? <Loader className="w-3 h-3 animate-spin" />
-                                                : <div className={`w-2 h-2 rounded-full ${vacancy.cvIsActive ? 'bg-green-500' : 'bg-gray-400'}`} />
-                                            }
-                                            {vacancy.cvIsActive ? 'Требуется' : 'Не требуется'}
-                                        </button>
-                                    </td>
+                                    <td>{vacancy.education && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.workSchedule && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.specialization && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.salary && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.region && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.experience && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.advantage && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+
+                                    <td>{vacancy.questionGroupId && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.knowledgeGroupId && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+                                    <td>{vacancy.additionalQuestionGroupId && <CheckCircle width={18} height={18} className="text-green-600 mx-auto"/>}</td>
+
 
                                     {/* Изображение */}
                                     <td className="px-4 py-3">
@@ -108,6 +119,24 @@ const {
                                                 <span className="text-xs text-gray-300">нет</span>
                                             </div>
                                         )}
+                                    </td>
+
+                                    <td className="px-4 py-3">
+                                        <button
+                                        onClick={() => toggleCvActivated(vacancy)}
+                                            disabled={isUpdating}
+                                            className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-all
+                                                ${vacancy.cvIsActive
+                                                    ? 'bg-green-500/20 text-green-700 border-green-300 hover:bg-green-500 hover:text-white'
+                                                    : 'bg-gray-100/50 text-gray-500 border-gray-300 hover:bg-gray-500 hover:text-white'
+                                                } disabled:opacity-50`}
+                                        >
+                                            {isUpdating
+                                                ? <Loader className="w-3 h-3 animate-spin" />
+                                                : <div className={`w-2 h-2 rounded-full ${vacancy.cvIsActive ? 'bg-green-500' : 'bg-gray-400'}`} />
+                                            }
+                                            {vacancy.cvIsActive ? 'Требуется' : 'Не требуется'}
+                                        </button>
                                     </td>
 
                                     {/* Тогл публикации */}

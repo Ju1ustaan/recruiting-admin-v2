@@ -34,7 +34,7 @@ const navLinks: NavLink[] = [
     { path: '/vacancy', name: 'Вакансии',
         childLinks: [
             { path: '/vacancy', name: 'Вакансии', icon: BriefcaseBusiness },
-            { path: '/vacancy/filters', name: 'Фильтры', icon: SlidersHorizontal },
+            { path: '/vacancy/filters', name: 'Параметры', icon: SlidersHorizontal },
             { path: '/vacancy/test-page', name: 'Тест', icon: ClipboardList },
         ]
     },

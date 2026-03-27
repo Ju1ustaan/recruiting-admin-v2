@@ -5,8 +5,8 @@ import { AdminVacancy } from "@/widgets/admin-vacancy"
 import { VacancyTable } from "@/widgets/admin-vacancy/ui/VacancyTable"
 
 const tabs = [
-    { id: 'create', label: 'Создать вакансию' },
     { id: 'vacancy-list', label: 'Список вакансий' },
+    { id: 'create', label: 'Создать вакансию' },
 ]
 const VacancyPage = () => {
     return (
@@ -15,8 +15,8 @@ const VacancyPage = () => {
                 tabs={tabs}
                 renderContent={(activeTab) => (
                     <div className="p-5">
-                        {activeTab === 'create' && (<AdminVacancy />)}
                         {activeTab === 'vacancy-list' && (<VacancyTable/>)}
+                        {activeTab === 'create' && (<AdminVacancy />)}
                     </div>
                 )}
             />
